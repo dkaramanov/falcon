@@ -18,14 +18,14 @@ public class WebSocketController extends TextWebSocketHandler {
 
 	private final MessageService messageService;
 
-	public WebSocketController(MessageService messageService) {
-		this.messageService = messageService;
-	}
-
 	/**
 	 * Logger
 	 */
 	private Logger logger = LoggerFactory.getLogger(WebSocketController.class);
+
+	public WebSocketController(MessageService messageService) {
+		this.messageService = messageService;
+	}
 
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws IOException {
