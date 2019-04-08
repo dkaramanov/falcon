@@ -4,6 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -37,6 +39,12 @@ public class WebSocketControllerTest {
 	private MessageRepository messageRepository;
 
 	private boolean connected = false;
+	
+	/**
+	 * Logger
+	 */
+	private Logger logger = LoggerFactory.getLogger(WebSocketControllerTest.class);
+
 
 	@Test
 	public void testWebSocket() {
@@ -46,23 +54,23 @@ public class WebSocketControllerTest {
 
 			@Override
 			public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-				System.out.println("Connected");
+				logger.info("Connected");
 				connected = true;
 			}
 
 			@Override
 			public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
-				System.out.println("Message");
+				logger.info("Handle message");
 			}
 
 			@Override
 			public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception {
-				System.out.println("Error");
+				logger.info("Handle error");
 			}
 
 			@Override
 			public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) throws Exception {
-				System.out.println("Closed");
+				logger.info("Close");
 			}
 
 			@Override
