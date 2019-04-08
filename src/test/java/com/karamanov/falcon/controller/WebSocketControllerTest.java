@@ -32,16 +32,16 @@ public class WebSocketControllerTest {
 
 	@LocalServerPort
 	private int port;
-	
+
 	@MockBean
 	private MessageRepository messageRepository;
-	
+
 	private boolean connected = false;
-	
+
 	@Test
 	public void testWebSocket() {
 		StandardWebSocketClient client = new StandardWebSocketClient();
-		
+
 		WebSocketHandler wsh = new WebSocketHandler() {
 
 			@Override
@@ -70,16 +70,16 @@ public class WebSocketControllerTest {
 				return false;
 			}
 		};
-				
+
 		client.doHandshake(wsh, "ws://localhost:" + port + "/socket");
-		
-		//Wait a second to handle connection
+
+		// Wait a second to handle connection
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+
 		assertTrue(connected);
 	}
 }

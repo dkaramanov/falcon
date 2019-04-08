@@ -9,12 +9,12 @@ public class Message {
 
 	private Integer messageID;
 
-    private String messageText;
-    
-    private Date messageDate;
-    
-    public Message() {
-    }
+	private String messageText;
+
+	private Date messageDate;
+
+	public Message() {
+	}
 
 	public Integer getMessageID() {
 		return messageID;
@@ -39,7 +39,7 @@ public class Message {
 	public void setMessageDate(Date messageDate) {
 		this.messageDate = messageDate;
 	}
-	
+
 	public boolean validate() {
 		return messageID != null && messageText != null && !"".contentEquals(messageText.trim());
 	}

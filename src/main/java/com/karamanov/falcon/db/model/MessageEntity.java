@@ -20,18 +20,18 @@ public class MessageEntity implements Serializable {
 	private static final long serialVersionUID = 8941103279985736454L;
 
 	@Id
-    @Column(name = "message_id")
-    private Integer messageID;
-    
-    @Column(name = "message_text")
-    private String messageText;
-    
-    @Column(name = "message_date")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date messageDate;
-    
-    public MessageEntity() {
-    }
+	@Column(name = "message_id")
+	private Integer messageID;
+
+	@Column(name = "message_text")
+	private String messageText;
+
+	@Column(name = "message_date")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date messageDate;
+
+	public MessageEntity() {
+	}
 
 	public Integer getMessageID() {
 		return messageID;

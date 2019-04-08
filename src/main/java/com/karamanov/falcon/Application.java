@@ -13,15 +13,15 @@ import com.karamanov.falcon.service.MessageService;
  */
 @SpringBootApplication
 public class Application {
-	
+
 	@Autowired
 	private MessageService messageService;
-	
+
 	@PreDestroy
-    public void stop() {
+	public void stop() {
 		messageService.notifyAllSessions("Disconected");
-    }
-	
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}

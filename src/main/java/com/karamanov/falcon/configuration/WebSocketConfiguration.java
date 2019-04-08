@@ -15,11 +15,11 @@ import com.karamanov.falcon.service.MessageService;
 @Configuration
 @EnableWebSocket
 public class WebSocketConfiguration implements WebSocketConfigurer {
-	
+
 	@Autowired
 	private MessageService messageService;
 
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-	    registry.addHandler(new WebSocketController(messageService), "/socket").setAllowedOrigins("*");
+		registry.addHandler(new WebSocketController(messageService), "/socket").setAllowedOrigins("*");
 	}
 }

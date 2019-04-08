@@ -50,7 +50,7 @@ public class MessageService {
 			messageO.setMessageText(message.get().getMessageText());
 			messageO.setMessageDate(message.get().getMessageDate());
 			return Optional.of(messageO);
-		} 
+		}
 		return Optional.empty();
 	}
 
